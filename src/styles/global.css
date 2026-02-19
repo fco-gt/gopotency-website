@@ -22,6 +22,7 @@
 
   /* Starlight Overrides */
   --sl-color-bg: var(--site-bg) !important;
+  --sl-color-bg-sidebar: hsl(215, 20%, 18%) !important;
   --sl-color-bg-nav: var(--site-bg) !important;
   --sl-color-accent-low: hsl(192, 100%, 10%);
   --sl-color-accent: var(--site-primary);

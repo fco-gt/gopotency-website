@@ -16,30 +16,68 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid } from "@astrojs/starlight/components";
+import { Card, CardGrid, LinkCard } from "@astrojs/starlight/components";
 
-## Why GoPotency?
+## The Core Philosophy
 
 <CardGrid stagger>
-  <Card title="Framework Agnostic" icon="rocket">
-    Works seamlessly with Gin, standard `net/http`, Echo, and more.
+  <Card title="Minimalist & Powerful" icon="rocket">
+    GoPotency follows a "Zero-Friction" approach. Integrate idempotency in your
+    Gin or Standard HTTP APIs with just **3 lines of code**.
   </Card>
-  <Card title="Multiple Storage Backends" icon="document">
-    In-memory support out of the box, with Redis and SQL support coming soon.
-  </Card>
-  <Card title="Flexible Key Strategies" icon="setting">
-    Use header-based keys, automatic request body hashing, or composite
-    strategies.
-  </Card>
-  <Card title="Thread-Safe" icon="approve-check">
-    Built for high-concurrency environments with atomic locking and safe memory
-    management.
-  </Card>
-  <Card title="Production Ready" icon="star">
-    Comprehensive testing, error handling, and customizable validation.
-  </Card>
-  <Card title="Open Source" icon="github">
-    Free to use under the MIT license, with a focus on community and
-    reliability.
+  <Card title="Absolute Reliability" icon="approve-check">
+    Built for high-concurrency environments with atomic locking, ensuring that
+    no request is ever processed twice, regardless of network failures.
   </Card>
 </CardGrid>
+
+---
+
+## Direct Integration
+
+Seeing is believing. Here is how easy it is to protect your routes using our Gin middleware.
+
+```go
+// Apply the middleware to your router
+router.Use(ginmw.Idempotency(manager))
+
+// Your existing handlers are now automatically protected
+router.POST("/payments", handlePayment)
+```
+
+<LinkCard
+  title="Explore the Gin Middleware Documentation"
+  description="Learn how to configure the manager and apply the middleware to your routes."
+  href="/middleware/gin/"
+/>
+
+---
+
+## Why Choose GoPotency?
+
+<CardGrid>
+  <Card title="Framework Agnostic" icon="setting">
+    Works with Gin, Echo, Fiber, or standard `net/http`. No vendor lock-in.
+  </Card>
+  <Card title="Elastic Storage" icon="document">
+    Start with In-Memory and scale to Redis or SQL backends with a simple config
+    change.
+  </Card>
+  <Card title="Request Hashing" icon="random">
+    Detect if a client reuses a key for a different payload automatically.
+  </Card>
+  <Card title="Open & Transparent" icon="github">
+    100% Open Source under the MIT license. Audit the code, contribute, and grow
+    with us.
+  </Card>
+</CardGrid>
+
+<div style="margin-top: 4rem; text-align: center;">
+  <h3>Ready to build robust APIs?</h3>
+  <br />
+  <LinkCard
+    title="Get Started in Minutes"
+    description="Follow our quick start guide and secure your first endpoint."
+    href="/quick-start/"
+  />
+</div>

@@ -1,0 +1,42 @@
+---
+title: Error Handling
+description: Customize how GoPotency returns errors to your clients.
+---
+
+GoPotency allows you to fully customize the error responses returned when something goes wrong (e.g., a missing key, a request mismatch, or a storage error).
+
+## Customizing Error Responses
+
+By default, GoPotency returns plain text error messages. You can change this behavior by providing an `ErrorHandler` in the `idempotency.Config` struct.
+
+### JSON Error Example
+
+This is useful for returning consistent JSON error objects across your API.
+
+```go
+manager, err := idempotency.NewManager(idempotency.Config{
+    Storage: store,
+    ErrorHandler: func(err error) (int, any) {
+        // Return a 400 Bad Request with a JSON body
+        return http.StatusBadRequest, map[string]string{
+            "error": "idempotency_error",
+            "message": err.Error(),
+        }
+    },
+})
+```
+
+## How it Works
+
+The `ErrorHandler` is a function with the following signature:
+
+```go
+func(err error) (statusCode int, body any)
+```
+
+- **`statusCode`**: The HTTP status code that will be sent to the client.
+- **`body`**: The data that will be serialized as the response body. If you are using Gin, this can be a `gin.H` or a struct. If using standard HTTP, it will be marshaled to JSON.
+
+:::tip
+Use a custom `ErrorHandler` to translate error messages or to include internal error codes that your frontend can process.
+:::

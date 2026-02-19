@@ -1,31 +1,101 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
-		starlight({
-			title: 'Docs with Tailwind',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
-			sidebar: [
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
-			],
-			customCss: ['./src/styles/global.css'],
-		}),
-	],
-	vite: {
-		plugins: [tailwindcss()],
-	},
+  site: "https://gopotency.vercel.app",
+  integrations: [
+    starlight({
+      title: "GoPotency",
+      defaultLocale: "root",
+      locales: {
+        root: {
+          label: "English",
+          lang: "en",
+        },
+        es: {
+          label: "Español",
+          lang: "es",
+        },
+      },
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/fco-gt/gopotency",
+        },
+      ],
+      sidebar: [
+        {
+          label: "Start Here",
+          translations: { es: "Empezar aquí" },
+          items: [
+            {
+              label: "Introduction",
+              translations: { es: "Introducción" },
+              slug: "introduction",
+            },
+            {
+              label: "Installation",
+              translations: { es: "Instalación" },
+              slug: "installation",
+            },
+            {
+              label: "Quick Start",
+              translations: { es: "Inicio rápido" },
+              slug: "quick-start",
+            },
+          ],
+        },
+        {
+          label: "Guides",
+          translations: { es: "Guías" },
+          items: [
+            {
+              label: "Configuration",
+              translations: { es: "Configuración" },
+              slug: "guides/configuration",
+            },
+            {
+              label: "Key Strategies",
+              translations: { es: "Estrategias de clave" },
+              slug: "guides/key-strategies",
+            },
+            {
+              label: "Request Hashing",
+              translations: { es: "Request Hashing" },
+              slug: "guides/request-hashing",
+            },
+            {
+              label: "Error Handling",
+              translations: { es: "Manejo de Errores" },
+              slug: "guides/error-handling",
+            },
+            {
+              label: "Storage Backends",
+              translations: { es: "Almacenamiento" },
+              slug: "guides/storage",
+            },
+          ],
+        },
+        {
+          label: "Middleware",
+          items: [
+            { label: "Gin", slug: "middleware/gin" },
+            {
+              label: "Standard HTTP",
+              translations: { es: "HTTP Estándar" },
+              slug: "middleware/http",
+            },
+          ],
+        },
+      ],
+      customCss: ["./src/styles/global.css"],
+    }),
+  ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

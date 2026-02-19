@@ -1,0 +1,50 @@
+---
+title: Request Hashing
+description: Protect your API from payload mismatches with request hashing.
+---
+
+`RequestHasher` is used to detect if two requests with the same idempotency key have different content. This prevents a classic edge case where a client reuses a key for a completely different operation.
+
+## Available Hashers
+
+### Body Hasher (Default)
+
+The simplest approach. It hashes exclusively the **request body**.
+
+```go
+import "github.com/fco-gt/gopotency/hash"
+
+manager, err := idempotency.NewManager(idempotency.Config{
+    Storage:       store,
+    RequestHasher: hash.BodyHasher(),
+})
+```
+
+:::note
+If the request has no body (e.g., some DELETE requests), this hasher will return an empty string.
+:::
+
+### Full Hasher
+
+A stricter approach that combines the **HTTP Method**, **Path**, and **Body**.
+
+```go
+RequestHasher: hash.FullHasher()
+```
+
+The data used for the hash follows the pattern: `METHOD:PATH:BODY`.
+
+## Custom Hasher
+
+You can implement your own hashing logic by fulfilling the `RequestHasher` interface:
+
+```go
+type MyHasher struct{}
+
+func (h *MyHasher) Hash(req *idempotency.Request) (string, error) {
+    // Custom logic: e.g., hash specific headers + body
+    data := fmt.Sprintf("%s:%s", req.Headers["X-Custom-Context"], string(req.Body))
+    hash := sha256.Sum256([]byte(data))
+    return hex.EncodeToString(hash[:]), nil
+}
+```

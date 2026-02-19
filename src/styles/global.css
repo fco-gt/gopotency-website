@@ -13,21 +13,43 @@
   --font-sans: "Inter", "Outfit", sans-serif;
 }
 
-:root {
-  /* User-defined Palette */
+:root[data-theme='dark'] {
   --site-bg: hsl(215, 25%, 10%);
   --site-fg: hsl(180, 20%, 96%);
   --site-primary: hsl(192, 100%, 45%);
   --site-primary-fg: hsl(215, 25%, 10%);
+  --site-card-bg: hsla(215, 25%, 15%, 0.4);
+  --site-sidebar-bg: hsl(215, 20%, 18%);
+  --site-border: hsla(180, 20%, 96%, 0.05);
+  --site-grid-opacity: 0.03;
+}
 
-  /* Starlight Overrides */
+:root[data-theme='light'] {
+  --site-bg: hsl(180, 20%, 98%);
+  --site-fg: hsl(215, 25%, 15%);
+  --site-primary: hsl(192, 100%, 35%);
+  --site-primary-fg: white;
+  --site-card-bg: white;
+  --site-sidebar-bg: hsl(215, 20%, 94%);
+  --site-border: hsla(215, 25%, 15%, 0.08);
+  --site-grid-opacity: 0.05;
+
+  /* Starlight Light Theme Overrides */
   --sl-color-bg: var(--site-bg) !important;
-  --sl-color-bg-sidebar: hsl(215, 20%, 18%) !important;
+  --sl-color-bg-sidebar: var(--site-sidebar-bg) !important;
+  --sl-color-text: var(--site-fg) !important;
+  --sl-color-heading: var(--site-fg) !important;
+  --sl-color-white: black !important;
+}
+
+:root {
+  /* Common Starlight Overrides using the dynamic variables */
+  --sl-color-bg: var(--site-bg) !important;
+  --sl-color-bg-sidebar: var(--site-sidebar-bg) !important;
   --sl-color-bg-nav: var(--site-bg) !important;
   --sl-color-accent-low: hsl(192, 100%, 10%);
   --sl-color-accent: var(--site-primary);
   --sl-color-accent-high: hsl(192, 100%, 60%);
-  --sl-color-white: var(--site-fg);
   --sl-color-text-accent: var(--site-primary);
 }
 

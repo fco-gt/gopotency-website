@@ -1,17 +1,52 @@
 @layer base, starlight, theme, components, utilities;
 
-@import '@astrojs/starlight-tailwind';
-@import 'tailwindcss/theme.css' layer(theme);
-@import 'tailwindcss/utilities.css' layer(utilities);
+@import "@astrojs/starlight-tailwind";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
 @theme {
-	/*
-	Configure your Tailwind theme that will be used by Starlight.
-	https://starlight.astro.build/guides/css-and-tailwind/#styling-starlight-with-tailwind
-	*/
+    --color-accent-600: var(--color-violet-600);
+    --color-accent-500: var(--color-violet-500);
+    --color-accent-400: var(--color-violet-400);
+    --color-accent-low: #1e1b4b; /* Deep Indigo */
+
+    --font-sans: "Inter", "Outfit", sans-serif;
 }
 
-/*
-Add additional Tailwind styles to this file:
-https://tailwindcss.com/docs/adding-custom-styles#using-custom-css
-*/
+/* Custom Hero Button Gradient */
+.hero .sl-link-button.primary {
+    background: linear-gradient(
+        135deg,
+        var(--color-violet-600),
+        var(--color-indigo-600)
+    );
+    border: none;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hero .sl-link-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+}
+
+/* Premium Card Hover Effects */
+.card-grid .card {
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.card-grid .card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent-500) !important;
+}
+
+/* Modern Header Blur */
+header {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(var(--color-black), 0.7) !important;
+}

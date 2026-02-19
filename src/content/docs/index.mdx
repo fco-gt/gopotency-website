@@ -1,50 +1,42 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: GoPotency
+description: A flexible, framework-agnostic Go package for handling idempotency in HTTP APIs.
+template: splash
 hero:
-  title: |
-    Welcome to Starlight with
-    <span
-      class="font-black text-transparent
-        bg-clip-text bg-gradient-to-b
-        from-accent-700 to-accent-400
-        dark:from-accent-500 dark:to-accent-200"
-    >
-      Tailwind
-    </span>
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Ensuring your Go APIs are robust and reliable with easy-to-use idempotency.
   image:
     file: ../../assets/houston.webp
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Get Started
+      link: /introduction/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: View on GitHub
+      link: https://github.com/fco-gt/gopotency
       icon: external
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## Why GoPotency?
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Framework Agnostic" icon="rocket">
+		Works seamlessly with Gin, standard `net/http`, Echo, and more.
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="Multiple Storage Backends" icon="document">
+		In-memory support out of the box, with Redis and SQL support coming soon.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Flexible Key Strategies" icon="setting">
+		Use header-based keys, automatic request body hashing, or composite strategies.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="Thread-Safe" icon="approve-check">
+		Built for high-concurrency environments with atomic locking and safe memory management.
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Production Ready" icon="star">
+		Comprehensive testing, error handling, and customizable validation.
+	</Card>
+	<Card title="Open Source" icon="github">
+		Free to use under the MIT license, with a focus on community and reliability.
 	</Card>
 </CardGrid>

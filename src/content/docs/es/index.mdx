@@ -1,0 +1,42 @@
+---
+title: GoPotency
+description: Un paquete de Go flexible y agnóstico al framework para manejar la idempotencia en APIs HTTP.
+template: splash
+hero:
+  tagline: Asegurando que sus APIs de Go sean robustas y confiables con una idempotencia fácil de usar.
+  image:
+    file: ../../../assets/houston.webp
+  actions:
+    - text: Empezar
+      link: /es/introduction/
+      icon: right-arrow
+    - text: Ver en GitHub
+      link: https://github.com/fco-gt/gopotency
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## ¿Por qué GoPotency?
+
+<CardGrid stagger>
+	<Card title="Agnóstico al Framework" icon="rocket">
+		Funciona perfectamente con Gin, `net/http` estándar, Echo y más.
+	</Card>
+	<Card title="Múltiples Backends de Almacenamiento" icon="document">
+		Soporte en memoria listo para usar, con soporte para Redis y SQL próximamente.
+	</Card>
+	<Card title="Estrategias de Clave Flexibles" icon="setting">
+		Use claves basadas en encabezados, hash automático del cuerpo de la petición o estrategias compuestas.
+	</Card>
+	<Card title="Seguro para Hilos" icon="approve-check">
+		Diseñado para entornos de alta concurrencia con bloqueo atómico y gestión segura de memoria.
+	</Card>
+	<Card title="Listo para Producción" icon="star">
+		Pruebas completas, manejo de errores y validación personalizable.
+	</Card>
+	<Card title="Código Abierto" icon="github">
+		Gratis para usar bajo la licencia MIT, enfocado en la comunidad y la fiabilidad.
+	</Card>
+</CardGrid>

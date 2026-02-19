@@ -1,53 +1,52 @@
-# Starlight Starter Kit: Tailwind
+# GoPotency Documentation Website
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+This repository contains the source code for the official [GoPotency](https://github.com/fco-gt/gopotency) documentation website, built with [Starlight](https://starlight.astro.build/) and [Astro](https://astro.build/).
 
-```
-pnpm create astro@latest -- --template starlight/tailwind
-```
+## 🚀 Getting Started
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+To run the documentation site locally, follow these steps:
 
-## 🚀 Project Structure
+1.  **Clone the repository**:
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+    ```bash
+    git clone https://github.com/fco-gt/gopotency-website.git
+    cd gopotency-website
+    ```
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   ├── styles/
-│   │   └── global.css
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
+2.  **Install dependencies**:
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+    ```bash
+    npm install
+    # or
+    pnpm install
+    ```
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+3.  **Start the development server**:
+    ```bash
+    npm run dev
+    ```
 
-Static assets, like favicons, can be placed in the `public/` directory.
+The site will be available at `http://localhost:4321`.
 
-The project includes [Tailwind CSS](https://starlight.astro.build/guides/css-and-tailwind/#tailwind-css) for styling. Customize your design by modifying `src/styles/global.css`.
+## 🛠 Project Structure
 
-## 🧞 Commands
+- `src/content/docs/`: Contains the documentation content in English (root) and Spanish (`es/`).
+- `src/assets/`: Static assets like images and icons.
+- `src/styles/`: Global CSS and theme customizations.
+- `astro.config.mjs`: Starlight and Astro configuration (sidebar, i18n, social links).
 
-All commands are run from the root of the project, from a terminal:
+## 🤝 Contributing
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+Contributions are welcome! If you want to improve the documentation or fix a bug:
 
-## 👀 Want to learn more?
+1.  Fork the repository.
+2.  Create a new branch (`git checkout -b feature/amazing-feature`).
+3.  Commit your changes (`git commit -m 'Add some amazing feature'`).
+4.  Push to the branch (`git push origin feature/amazing-feature`).
+5.  Open a Pull Request.
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+Please make sure to check both English and Spanish versions if you are adding new content.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/fco-gt/gopotency/blob/master/LICENSE) file for details.

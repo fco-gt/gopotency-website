@@ -1,0 +1,71 @@
+---
+title: Inicio rápido
+description: Póngase en marcha con GoPotency en cuestión de minutos.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Esta guía le ayudará a configurar **GoPotency** con los frameworks más comunes.
+
+## Con Gin
+
+La forma más popular de usar GoPotency es a través de su middleware para Gin.
+
+<Steps>
+
+1. **Inicializar almacenamiento**: Cree un backend de almacenamiento (ej. en memoria).
+   ```go
+   store := memory.NewMemoryStorage()
+   
+   // Nota: Cerrar el almacenamiento cuando haya terminado
+   defer store.Close()
+   ```
+
+2. **Crear Manager**: Configure e instancie el manager de idempotencia.
+   ```go
+   manager, err := idempotency.NewManager(idempotency.Config{
+       Storage: store,
+       TTL:     24 * time.Hour,
+   })
+   defer manager.Close()
+   ```
+
+3. **Aplicar Middleware**: Use el middleware `Idempotency` en su enrutador de Gin.
+   ```go
+   router := gin.Default()
+   router.Use(ginmw.Idempotency(manager))
+   ```
+
+4. **Definir Rutas**: Sus rutas POST/PUT/PATCH ahora están protegidas.
+   ```go
+   router.POST("/orders", func(c *gin.Context) {
+       c.JSON(200, gin.H{"status": "processed"})
+   })
+   ```
+
+</Steps>
+
+## Con HTTP Estándar
+
+GoPotency también funciona perfectamente con la librería estándar `net/http`.
+
+<Steps>
+
+1. **Inicializar Manager**: Igual que el ejemplo anterior.
+
+2. **Envolver Controladores**: Use el middleware para envolver sus controladores HTTP.
+   ```go
+   mux := http.NewServeMux()
+   handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+       w.Write([]byte(`{"status": "processed"}`))
+   })
+
+   mux.Handle("/payment", httpmw.Idempotency(manager)(handler))
+   ```
+
+3. **Iniciar Servidor**:
+   ```go
+   http.ListenAndServe(":8080", mux)
+   ```
+
+</Steps>

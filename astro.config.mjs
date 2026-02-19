@@ -93,6 +93,7 @@ export default defineConfig({
         },
       ],
       customCss: ["./src/styles/global.css"],
+      favicon: "/favicon.ico",
     }),
   ],
   vite: {

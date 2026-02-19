@@ -5,7 +5,7 @@ template: splash
 hero:
   tagline: Ensuring your Go APIs are robust and reliable with easy-to-use idempotency.
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/gopotency-icon.png
   actions:
     - text: Get Started
       link: /introduction/
@@ -16,27 +16,30 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
 ## Why GoPotency?
 
 <CardGrid stagger>
-	<Card title="Framework Agnostic" icon="rocket">
-		Works seamlessly with Gin, standard `net/http`, Echo, and more.
-	</Card>
-	<Card title="Multiple Storage Backends" icon="document">
-		In-memory support out of the box, with Redis and SQL support coming soon.
-	</Card>
-	<Card title="Flexible Key Strategies" icon="setting">
-		Use header-based keys, automatic request body hashing, or composite strategies.
-	</Card>
-	<Card title="Thread-Safe" icon="approve-check">
-		Built for high-concurrency environments with atomic locking and safe memory management.
-	</Card>
-	<Card title="Production Ready" icon="star">
-		Comprehensive testing, error handling, and customizable validation.
-	</Card>
-	<Card title="Open Source" icon="github">
-		Free to use under the MIT license, with a focus on community and reliability.
-	</Card>
+  <Card title="Framework Agnostic" icon="rocket">
+    Works seamlessly with Gin, standard `net/http`, Echo, and more.
+  </Card>
+  <Card title="Multiple Storage Backends" icon="document">
+    In-memory support out of the box, with Redis and SQL support coming soon.
+  </Card>
+  <Card title="Flexible Key Strategies" icon="setting">
+    Use header-based keys, automatic request body hashing, or composite
+    strategies.
+  </Card>
+  <Card title="Thread-Safe" icon="approve-check">
+    Built for high-concurrency environments with atomic locking and safe memory
+    management.
+  </Card>
+  <Card title="Production Ready" icon="star">
+    Comprehensive testing, error handling, and customizable validation.
+  </Card>
+  <Card title="Open Source" icon="github">
+    Free to use under the MIT license, with a focus on community and
+    reliability.
+  </Card>
 </CardGrid>

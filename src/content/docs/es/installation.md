@@ -27,3 +27,13 @@ import (
     "github.com/fco-gt/gopotency/storage/memory"
 )
 ```
+
+## Dependencias Opcionales
+
+Dependiendo del backend de almacenamiento que elijas, es posible que necesites instalar drivers adicionales:
+
+- **Redis**: `go get github.com/redis/go-redis/v9`
+- **GORM**: `go get gorm.io/gorm`
+- **SQLite (Pure Go)**: `go get github.com/glebarez/sqlite`
+- **Echo Middleware**: `go get github.com/labstack/echo/v4`
+- **Fiber Middleware**: `go get github.com/gofiber/fiber/v2`

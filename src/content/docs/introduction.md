@@ -24,7 +24,15 @@ GoPotency was built with three main goals in mind:
 ## How it Works
 
 When a request arrives with an `Idempotency-Key`:
+
 1. **Deduplication**: It checks if a successful response for that key already exists.
 2. **Locking**: If the request is new, it acquires an atomic lock to ensure no other instance processes the same key simultaneously.
 3. **Caching**: Once finished, it stores the response (status code, headers, and body).
-4. **Replaying**: Future requests with the same key receive the cached response instantly.
+
+## Key Features
+
+- ✅ **Framework Agnostic**: Native support for Gin and standard `net/http`, adaptable to any other.
+- ✅ **Distributed Storage**: Support for **Redis**, **SQL** (Postgres/SQLite), and **GORM**.
+- ✅ **Atomic Locking**: Prevents race conditions in distributed systems.
+- ✅ **Automatic Hashing**: Can generate keys automatically from request content.
+- ✅ **Testable & Robust**: 100% thread-safe with high test coverage and benchmarks.

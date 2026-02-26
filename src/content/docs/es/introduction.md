@@ -24,7 +24,15 @@ GoPotency fue construido con tres objetivos principales en mente:
 ## Cómo Funciona
 
 Cuando llega una petición con una `Idempotency-Key`:
+
 1. **Deduplicación**: Comprueba si ya existe una respuesta exitosa para esa clave.
 2. **Bloqueo**: Si la petición es nueva, adquiere un bloqueo atómico para asegurar que ninguna otra instancia procese la misma clave simultáneamente.
 3. **Almacenamiento**: Una vez terminada, guarda la respuesta (código de estado, encabezados y cuerpo).
-4. **Repetición**: Las peticiones futuras con la misma clave reciben la respuesta almacenada instantáneamente.
+
+## Características Principales
+
+- ✅ **Agnóstico al Framework**: Soporte nativo para Gin y `net/http` estándar, adaptable a cualquier otro.
+- ✅ **Almacenamiento Distribuido**: Soporte para **Redis**, **SQL** (Postgres/SQLite) y **GORM**.
+- ✅ **Bloqueo Atómico**: Previene condiciones de carrera en sistemas distribuidos.
+- ✅ **Hashing Automático**: Puede generar claves automáticamente a partir del contenido de la petición.
+- ✅ **Probado y Robusto**: 100% seguro para hilos con alta cobertura de tests y benchmarks.

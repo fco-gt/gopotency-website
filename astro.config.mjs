@@ -68,9 +68,48 @@ export default defineConfig({
           ],
         },
         {
-          label: "Guides",
-          translations: { es: "Guías" },
+          label: "Middleware",
+          translations: { es: "Middleware" },
           items: [
+            {
+              label: "Overview",
+              translations: { es: "Vista General" },
+              slug: "middleware/overview",
+            },
+            { label: "Gin", slug: "middleware/gin" },
+            { label: "Echo", slug: "middleware/echo" },
+            { label: "Fiber", slug: "middleware/fiber" },
+            {
+              label: "Standard HTTP",
+              translations: { es: "HTTP Estándar" },
+              slug: "middleware/http",
+            },
+          ],
+        },
+        {
+          label: "Storage Backends",
+          translations: { es: "Soportes de Almacenamiento" },
+          items: [
+            {
+              label: "Overview",
+              translations: { es: "Vista General" },
+              slug: "storage/overview",
+            },
+            { label: "In-Memory", translations: { es: "En Memoria" }, slug: "storage/memory" },
+            { label: "Redis", slug: "storage/redis" },
+            { label: "GORM", slug: "storage/gorm" },
+            { label: "SQL", slug: "storage/sql" },
+          ],
+        },
+        {
+          label: "Advanced Guides",
+          translations: { es: "Guías Avanzadas" },
+          items: [
+            {
+              label: "Best Practices",
+              translations: { es: "Mejores Prácticas" },
+              slug: "guides/best-practices",
+            },
             {
               label: "Configuration",
               translations: { es: "Configuración" },
@@ -92,11 +131,6 @@ export default defineConfig({
               slug: "guides/error-handling",
             },
             {
-              label: "Storage Backends",
-              translations: { es: "Almacenamiento" },
-              slug: "guides/storage",
-            },
-            {
               label: "Performance",
               translations: { es: "Rendimiento" },
               slug: "guides/performance",
@@ -105,17 +139,6 @@ export default defineConfig({
               label: "Contributing",
               translations: { es: "Contribución" },
               slug: "guides/contributing",
-            },
-          ],
-        },
-        {
-          label: "Middleware",
-          items: [
-            { label: "Gin", slug: "middleware/gin" },
-            {
-              label: "Standard HTTP",
-              translations: { es: "HTTP Estándar" },
-              slug: "middleware/http",
             },
           ],
         },

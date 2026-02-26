@@ -9,6 +9,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "GoPotency",
+      components: {
+        Head: "./src/components/Head.astro",
+      },
       defaultLocale: "root",
       locales: {
         root: {

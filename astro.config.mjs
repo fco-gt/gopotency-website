@@ -22,6 +22,9 @@ export default defineConfig({
     }),
     starlight({
       title: "GoPotency",
+      components: {
+        Head: "./src/components/Head.astro",
+      },
       logo: {
         src: "./src/assets/gopotency-icon.png",
         alt: "GoPotency Logo",
@@ -95,7 +98,11 @@ export default defineConfig({
               translations: { es: "Vista General" },
               slug: "storage/overview",
             },
-            { label: "In-Memory", translations: { es: "En Memoria" }, slug: "storage/memory" },
+            {
+              label: "In-Memory",
+              translations: { es: "En Memoria" },
+              slug: "storage/memory",
+            },
             { label: "Redis", slug: "storage/redis" },
             { label: "GORM", slug: "storage/gorm" },
             { label: "SQL", slug: "storage/sql" },

@@ -2,13 +2,31 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import tailwindcss from "@tailwindcss/vite";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://gopotency.vercel.app",
   integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: "en",
+        locales: {
+          root: "en",
+          es: "es",
+        },
+      },
+      changefreq: "weekly",
+      priority: 0.7,
+      lastmod: new Date(),
+    }),
     starlight({
       title: "GoPotency",
+      logo: {
+        src: "./src/assets/gopotency-icon.png",
+        alt: "GoPotency Logo",
+        replacesTitle: true,
+      },
       defaultLocale: "root",
       locales: {
         root: {
@@ -77,6 +95,16 @@ export default defineConfig({
               label: "Storage Backends",
               translations: { es: "Almacenamiento" },
               slug: "guides/storage",
+            },
+            {
+              label: "Performance",
+              translations: { es: "Rendimiento" },
+              slug: "guides/performance",
+            },
+            {
+              label: "Contributing",
+              translations: { es: "Contribución" },
+              slug: "guides/contributing",
             },
           ],
         },

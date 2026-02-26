@@ -29,6 +29,9 @@ manager, err := idempotency.NewManager(idempotency.Config{
     // AllowedMethods: ["POST", "PUT", "PATCH", "DELETE"] by default
 		AllowedMethods: []string{"POST", "PUT", "PATCH", "DELETE"},
 
+    // RequireKey if true, returns 400 if key is missing. Default: false
+		RequireKey: true,
+
     // ErrorHandler allows custom error responses.
     // See the Error Handling guide for more details.
 		ErrorHandler: func(err error) (statusCode int, body any) {
@@ -61,6 +64,10 @@ Prevents deadlocks. If a process starts but never finishes (e.g., the server cra
 ### Allowed Methods
 
 By default, GoPotency only applies idempotency to mutation methods (POST, PUT, PATCH, DELETE). You can customize this list if needed.
+
+### Require Key
+
+If set to `true`, the middleware will return a `400 Bad Request` if the idempotency key is missing for an allowed method/route. This is useful for enforcing idempotency on critical endpoints.
 
 ## Event Hooks
 
